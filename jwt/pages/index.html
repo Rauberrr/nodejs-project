@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<htnl>
+<head>
+<title>Página de login</title>
+<!--AXTOS-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id='App'>
+<input id='email' type='email'>
+<input id='senha' type='password'>
+<button onclick='Logar()'>Logar</button>
+</div>
+<!-- JAVASCRIPT. -->
+<script type="text/javascript">
+function Logar() {
+// RECEBE OS DADOS DO USUÁRIO.
+email = document.querySelector('#email').value;
+senha = document.querySelector( '#senha' ).value;
+// VERIFICA OS DADOS.
+if (!email || !senha) {
+return alert('Por favor, complete os campos.');
+}
+// ENVIA OS DADOS PARA O SERVIDOR.
+axios.post('api/users/logar', {
+email, senha
+}).then(response => {
+if (response.data.erro) {
+return alert(response.data.erro);
+} else {
+// SE TUDO DER CERTO, REDIRECIONA.
+window.location.href = '/privado';
+}
+}).catch(erro => {
+return alert(response.data.erro);
+});
+}
+
+</script>
+</body>
+</html>

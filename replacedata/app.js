@@ -12,7 +12,7 @@ const tempcontent = fs.readFileSync(`${__dirname}/temp/content.html`, 'utf-8')
 const tempProduct = fs.readFileSync(`${__dirname}/temp/product.html`, 'utf-8')
 
 
- 
+
 const server = http.createServer((req, res) => {
     const {query, pathname} = url.parse(req.url, true);
 
@@ -20,6 +20,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             'content-type': 'text/html'
         })
+        console.log(dataObj);
         const replacecontent = dataObj.map(el => replacedata (tempcontent, el)).join('');
         const output = temphome.replace('{%CONTENT%}', replacecontent);
         res.end(output);
@@ -50,8 +51,8 @@ const server = http.createServer((req, res) => {
     }
 
 
-})
+});
 
 server.listen(8000, () => {
     console.log('server is listining http://localhost:8000/')
-})
+});

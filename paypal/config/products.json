@@ -1,0 +1,25 @@
+{
+    "products" : [
+        {
+            "id": 1,
+            "title": "Monitor",
+            "description": "Muito bom",
+            "img": "/images/monitor.png",
+            "price": "200"
+        },
+        {
+            "id": 2,
+            "title": "Mouse",
+            "description": "Clica bem",
+            "img": "/images/mouse.png",
+            "price": "100"
+        },
+        {
+            "id": 3,
+            "title": "Teclado",
+            "description": "Digita bem",
+            "img": "/images/teclado.png",
+            "price": "100"
+        }
+    ]
+}
